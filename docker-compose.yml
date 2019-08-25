@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  overcast-sonos:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args: 
+        buildno: 1
+    ports:
+        - "9080:80"
+    restart: on-failure
+    networks: 
+      - webnet
+
+networks:
+  webnet:
+    driver: bridge
